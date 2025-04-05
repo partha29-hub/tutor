@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - EduLearn</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=64&q=80" alt="EduLearn Logo">
+                <h1>EduLearn Admin</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">Dashboard</a>
+                <a href="#users" class="nav-item" data-section="users">User Management</a>
+                <a href="#courses" class="nav-item" data-section="courses">Course Management</a>
+                <a href="#reports" class="nav-item" data-section="reports">Reports</a>
+                <a href="#monitoring" class="nav-item" data-section="monitoring">System Monitoring</a>
+                <a href="#announcements" class="nav-item" data-section="announcements">Announcements</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="search" placeholder="Search...">
+                </div>
+                <div class="user-menu">
+                    <span class="notifications">
+                        <span class="notification-count">3</span>
+                    </span>
+                    <div class="admin-profile">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=32&q=80" alt="Admin">
+                        <span>Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Users</h3>
+                        <p class="stat-number">1,234</p>
+                        <span class="stat-trend positive">+12% this month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Courses</h3>
+                        <p class="stat-number">45</p>
+                        <span class="stat-trend positive">+3 new courses</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Support Tickets</h3>
+                        <p class="stat-number">8</p>
+                        <span class="stat-trend negative">2 urgent</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>System Status</h3>
+                        <p class="stat-number">98.9%</p>
+                        <span class="stat-trend positive">Uptime</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management Section -->
+            <section id="users" class="section">
+                <h2>User Management</h2>
+                <div class="action-bar">
+                    <button class="btn primary">Add New User</button>
+                    <button class="btn secondary">Export Users</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTableBody">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Course Management Section -->
+            <section id="courses" class="section">
+                <h2>Course Management</h2>
+                <div class="action-bar">
+                    <button class="btn primary">Create Course</button>
+                    <button class="btn secondary">Import Courses</button>
+                </div>
+                <div class="course-grid" id="courseGrid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="section">
+                <h2>Reports</h2>
+                <div class="reports-container">
+                    <div class="report-card">
+                      <h3>Active Users</h3>
+                      <canvas id="chart1"></canvas>
+                    </div>
+                    <div class="report-card">
+                      <h3>Course Enrollments</h3>
+                      <canvas id="chart2"></canvas>
+                    </div>
+                    <div class="report-card">
+                      <h3>Performance</h3>
+                      <canvas id="chart3"></canvas>
+                    </div>
+                  </div>
+                  
+            </section>
+
+            <!-- System Monitoring Section -->
+            <section id="monitoring" class="section">
+                <h2>System Monitoring</h2>
+                <div class="monitoring-grid">
+                    <div class="monitor-card">
+                        <h3>Server Status</h3>
+                        <div class="status-indicator active"></div>
+                        <p>All systems operational</p>
+                    </div>
+                    <div class="monitor-card">
+                        <h3>Active Users</h3>
+                        <div id="activeUsersChart"></div>
+                    </div>
+                    <div class="monitor-card">
+                        <h3>Resource Usage</h3>
+                        <div id="resourceChart"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Announcements Section -->
+            <section id="announcements" class="section">
+                <h2>Announcements</h2>
+                <div class="announcement-composer">
+                    <textarea placeholder="Compose new announcement..."></textarea>
+                    <div class="composer-actions">
+                        <label for="userFilter">Filter Users:</label>
+                        <select id="userFilter" name="userFilter">
+                          <option>All Users</option>
+                          <option>Students Only</option>
+                          <option>Faculty Only</option>
+                        </select>
+                        
+                        <button class="btn primary">Post Announcement</button>
+                    </div>
+                </div>
+                <div class="announcement-list" id="announcementList">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+   
+    
+</body>
+</html>
